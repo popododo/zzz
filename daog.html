@@ -1,0 +1,309 @@
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script> 
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>大秀</title>
+<link rel="stylesheet" href="http://void-su.ev9.cn/Public/Css/amazeui.min.css">
+<script>
+        function onBridgeReady(){
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+        if (typeof WeixinJSBridge == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            }else if (document.attachEvent){
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        }else{
+            onBridgeReady();
+        }
+        if( sessionStorage.getItem("stime") == null ){
+            var s_time = Date.parse(new Date());
+            sessionStorage.setItem("stime", s_time );
+        }
+        if( sessionStorage.getItem("stime") == null ){
+            var s_time = Date.parse(new Date());
+            sessionStorage.setItem("stime", s_time );
+        }
+        window.timestamp = sessionStorage.getItem("stime") ? sessionStorage.getItem("stime") : Date.parse(new Date());
+    </script>
+</head>
+<style>
+html { height: 90%; }
+body { margin: 0 auto; width: 100%; }
+ul { list-style: none; margin: 0; padding: 0; }
+.header { width: 100%; height: 40px; position: fixed; top: 0; left: 0; background: #FA5B5B; z-index: 999; }
+.header ul { width: 100%; }
+.header ul li { float: left; width: 25%; height: 40px; display: block; }
+.header ul li a { text-align: center; display: block; height: 40px; line-height: 40px; color: #ccc; }
+.header ul li a.active { color: #fff; }
+.header .header-hot { position: fixed; z-index: 999; right: 6%; top: 8px; width: 15px; }
+.footer { width: 100%; height: 40px; position: fixed; bottom: 0; left: 0; border-top: 1px solid #dc143c; display: box; display: -webkit-box; display: -moz-box; }
+.footer .footer-left { box-flex: 1; -webkit-box-flex: 1; text-align: center; }
+.footer .footer-center { box-flex: 1; -webkit-box-flex: 1; text-align: center; }
+.footer .footer-right { box-flex: 1; -webkit-box-flex: 1; text-align: center; }
+.footer .footer-left img { width: 40px; }
+.footer .footer-center img { width: 60px; position: fixed; left: 0; right: 0; bottom: 0; margin: auto; }
+.footer .footer-right img { width: 40px; }
+.content { width: 100%; margin-top: 45px; }
+.content ul li { border-bottom: 1px solid #ccc; height: 70px; }
+.content ul li table { width: 100%; height: 70px; font-size: 12px; font-weight: 500; }
+.content ul li table .am-circle { width: 35px; height: 35px; }
+.content ul li table tr td img.sy, .content ul li table tr td img.dt { width: 15px; padding-bottom: 5px; }
+.content ul li table tr td img.r { width: 17px; padding-bottom: 5px; }
+.mask { width: 100%; height: 100%; background: #000; opacity: 0.6; position: absolute; left: 0; top: 0; }
+.userInfo { width: 350px; height: 220px; position: absolute; margin: auto; top: 0; bottom: 0; left: 0; right: 0; background: #fff; z-index: 99999999999; border-radius: 5px; }
+#index_yp{width: 120px;
+    background: #E80E0E;
+    display: block;
+    /* text-align: center; */
+    margin: 0px auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;}
+</style>
+<body>
+<div class="alertUserInfo" style="z-index: 99999999999;display: none;">
+  <div class="mask"></div>
+  <div class="userInfo"> <img src="http://void-su.ev9.cn/Public/Picture/dxclose.png" style="position: relative;right: -335px;top: -10px;width: 20px;" class="closeAlert">
+    <p style="display: block;color: red;font-size: 18px;text-align: center;margin: 0 0 20px 0;padding: 0;">对不起,该房间已关闭</p>
+    <div style="display: inline-block;margin-left: 40px;font-size: 13px;"> <img class="am-circle alertAvatar" src="" width="40" height="40"> &nbsp;&nbsp;&nbsp;<span class="alertName"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="alertCity"></span> </div>
+	<div >
+	   <h3 style="text-align: center;color: #A61BD2;margin-top: 18px;">购买月票(38.88元)有特权闯入直播中的房间</h3>
+	   <a href="#" id="index_yp" >立刻购买月票</a>
+	</div>
+  </div>
+</div>
+<div class="header">
+  <ul>
+    <li><a href="daog.html?refid=&view=gz&rhost=&cv=">关注</a></li>
+    <li><a href="daog.html?refid=&view=hot&rhost=&cv=">附近</a></li>
+    <li><a href="daog.html?refid=&view=new&rhost=&cv=">最新</a></li>
+    <li><a href="daog.html?refid=&view=zhibo&rhost=&cv=" class="active">大秀</a></li>
+  </ul>
+  <img src="http://void-su.ev9.cn/Public/Picture/ic_big_authenticate.png" class="header-hot"> </div>
+<div class="content">
+  <ul>
+        <li class="18" onclick="openDetail('18','http://img.sumeme.com/10/2/38096010_1_1.jpg','酒空人散','重庆市');"> <em style="display: none;">1</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/10/2/38096010_1_1.jpg" />&nbsp;&nbsp;&nbsp;酒空人散 </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;重庆市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/zb.png" width="60"></td>
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;color:red;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对一房间 </td>
+         
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-18">1</span>/<span style="color: red;">1</span></td>
+                      
+                    
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="24" onclick="openDetail('24','http://img.sumeme.com/29/5/46437469_1_0.jpg','浅默悲殇ゝ','唐山市');"> <em style="display: none;">1</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/29/5/46437469_1_0.jpg" />&nbsp;&nbsp;&nbsp;浅默悲殇ゝ </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;唐山市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/zb.png" width="60"></td>
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;color:red;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对一房间 </td>
+         
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-24">1</span>/<span style="color: red;">1</span></td>
+                      
+                    
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="8" onclick="openDetail('8','http://tva2.sinaimg.cn/crop.0.0.180.180.180/4fc5c146jw1e8qgp5bmzyj2050050aa8.jpg','听雪儿','广州市');"> <em style="display: none;">0</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://tva2.sinaimg.cn/crop.0.0.180.180.180/4fc5c146jw1e8qgp5bmzyj2050050aa8.jpg" />&nbsp;&nbsp;&nbsp;听雪儿 </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;广州市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/ks.png" width="60"></td>     
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对多房间 </td>
+          
+          
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-8">22</span>/<span style="color: red;">30</span></td>   
+                      
+                     
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="15" onclick="openDetail('15','http://img.sumeme.com/11/3/31351627_1_1.jpg','陶醉@','福州市');"> <em style="display: none;">0</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/11/3/31351627_1_1.jpg" />&nbsp;&nbsp;&nbsp;陶醉@ </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;福州市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/ks.png" width="60"></td>     
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对多房间 </td>
+          
+          
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-15">16</span>/<span style="color: red;">30</span></td>   
+                      
+                     
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="57" onclick="openDetail('57','http://img.sumeme.com/33/1/47318753_1_0.jpg','有黄瓜就可以嗨╰つ','武汉市');"> <em style="display: none;">0</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/33/1/47318753_1_0.jpg" />&nbsp;&nbsp;&nbsp;有黄瓜就可以嗨╰つ </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;武汉市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/ks.png" width="60"></td>     
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对多房间 </td>
+          
+          
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-57">18</span>/<span style="color: red;">30</span></td>   
+                      
+                     
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="80" onclick="openDetail('80','http://img.sumeme.com/45/5/47445805_11.jpg','妖孽','上海市');"> <em style="display: none;">0</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/45/5/47445805_11.jpg" />&nbsp;&nbsp;&nbsp;妖孽 </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;上海市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/ks.png" width="60"></td>     
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;color:red;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对一房间 </td>
+         
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-80">0</span>/<span style="color: red;">1</span></td>   
+                      
+                    
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="28" onclick="openDetail('28','http://img.sumeme.com/36/4/30292964_11.jpg','擦掉眼泪、你依旧是女王','泉州市');"> <em style="display: none;">1</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/36/4/30292964_11.jpg" />&nbsp;&nbsp;&nbsp;擦掉眼泪、你依旧是女王 </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;泉州市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/zb.png" width="60"></td>
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;color:red;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对一房间 </td>
+         
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-28">1</span>/<span style="color: red;">1</span></td>
+                      
+                    
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+       <li class="34" onclick="openDetail('34','http://img.sumeme.com/47/7/39737903_1_0_180180.jpg','發呆(⊙o⊙)','宁波市');"> <em style="display: none;">1</em>
+      <table>
+        <tr>
+          <td style="padding-left: 3%;width: 50%;"><img class="am-circle" src="http://img.sumeme.com/47/7/39737903_1_0_180180.jpg" />&nbsp;&nbsp;&nbsp;發呆(⊙o⊙) </td>
+          <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/dt.png" class="dt">&nbsp;宁波市 </td>
+                      <td rowspan="2" style="text-align: right;padding-right: 3%;" class="statusIco"><img src="http://void-su.ev9.cn/Public/Picture/zb.png" width="60"></td>
+                  </tr>
+        <tr>
+                    <td style="padding-left: 3%;width: 50%;">&nbsp;&nbsp;&nbsp;<img src="http://void-su.ev9.cn/Public/Picture/sy.png" class="sy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对多房间 </td>
+          
+          
+                           <td style="vertical-align: middle;"><img src="http://void-su.ev9.cn/Public/Picture/r.png" class="r">&nbsp;<span id="remainTicket-34">30</span>/<span style="color: red;">30</span></td>
+                      
+                     
+      
+          
+          
+        </tr>
+      </table>
+    </li>
+   
+  </ul>
+</div>
+<div class="footer" style="background: #fff;">
+	<div class="footer-left"><img src="http://void-su.ev9.cn/Public/Picture/tab_live_p.png"></div>
+	<div class="footer-center"><img src="http://void-su.ev9.cn/Public/Picture/tab_room.png"></div>
+	<div class="footer-right"><a href="daog.html?refid=&view=user&rhost=&cv="><img src="http://void-su.ev9.cn/Public/Picture/tab_me.png"></a></div>
+</div>
+<script src="http://void-su.ev9.cn/Public/js/jquery.min.js"></script> 
+<script src="http://void-su.ev9.cn/Public/js/amazeui.min.js"></script> 
+<script src="http://void-su.ev9.cn/Public/js/fastclick.js"></script> 
+<script src="http://void-su.ev9.cn/Public/js/jquery.cookie.js"></script>
+</body>
+</html>
+<script>
+    function openDetail(id,avatar,name,city){
+        var isAlert = $('.'+id+' em').html();
+        if(isAlert=='1'){
+            $('.alertAvatar').attr('src',avatar);
+            $('.alertName').html(name);
+            $('.alertCity').html(city);
+            $('.alertUserInfo').show();
+            return false;
+        }
+        window.location.href = "daog.html?refid=&view=dxshow&rhost=&cv=" + "&id=" + id;
+    }
+    $(function(){
+
+	
+	    $('#index_yp').click(function(){
+            var Paylikn =  'http:///index/pay/link?refid=&cv=';
+            var time = (Date.parse(new Date()) - window.timestamp  ) / 10000;
+            window.location.href = Paylikn +'&money=38.88'  + "&time=" + time;
+            return false;
+        });
+		
+
+        $('.closeAlert').click(function(){
+            $('.alertUserInfo').hide();
+            return false;
+        });
+
+        var liveId = ["15","8","57","80"];
+        for (var i=0;i<liveId.length;i++){
+            var remainTicket = $.cookie('remainTicket-'+liveId[i]);
+            if(remainTicket!=undefined){
+                if(30-remainTicket==0 || remainTicket==0){
+                    $('.'+liveId[i]+' em').html('1');
+                    $('.'+liveId[i]+' .statusIco').html('<img src="http://void-su.ev9.cn/Public/Picture/zb.png" width="60">');
+                }
+                $('#remainTicket-'+liveId[i]).html(30-remainTicket);
+            }
+        }
+    });
+</script>
+</script>
+
